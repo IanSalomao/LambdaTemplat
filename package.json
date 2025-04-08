@@ -1,0 +1,28 @@
+{
+  "name": "lambda-template",
+  "version": "1.0.0",
+  "description": "Template padrão para funções AWS Lambda com Node.js",
+  "main": "src/index.mjs",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test tests/unit/",
+    "lint": "eslint src/**/*.mjs",
+    "build": "node scripts/build.mjs",
+    "clean": "rimraf dist lambda-function.zip"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "keywords": ["aws", "lambda", "serverless", "template"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "rimraf": "^5.0.5",
+    "archiver": "^6.0.1"
+  }
+}

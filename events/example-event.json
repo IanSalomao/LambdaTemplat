@@ -1,0 +1,16 @@
+{
+  "type": "example",
+  "data": {
+    "id": "123456",
+    "timestamp": "2025-03-26T12:00:00Z",
+    "message": "Este é um evento de teste",
+    "details": {
+      "source": "teste-manual",
+      "priority": "alta"
+    }
+  },
+  "metadata": {
+    "version": "1.0",
+    "environment": "development"
+  }
+}
