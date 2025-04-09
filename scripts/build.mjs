@@ -10,6 +10,7 @@
  */
 
 import fs from "fs/promises";
+import { createWriteStream } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { exec } from "child_process";
@@ -78,7 +79,7 @@ const createZip = () => {
     console.log(`Criando arquivo zip: ${zipFilePath}`);
 
     // Cria um stream de gravação para o arquivo zip
-    const output = fs.createWriteStream(zipFilePath);
+    const output = createWriteStream(zipFilePath);
     const archive = archiver("zip", {
       zlib: { level: 9 }, // Nível máximo de compressão
     });

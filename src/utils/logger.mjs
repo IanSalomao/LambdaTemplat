@@ -11,14 +11,11 @@
  * @param {string} message - Mensagem descritiva
  * @param {Object} details - Detalhes adicionais para o log
  */
-export const logEvent = (message, details = {}) => {
-  console.log(
-    JSON.stringify({
-      timestamp: new Date().toISOString(),
-      message,
-      ...details,
-    })
-  );
+export const logEvent = (event = {}) => {
+  console.log({
+    timestamp: new Date().toISOString(),
+    event,
+  });
 };
 
 /**

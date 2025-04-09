@@ -1,0 +1,13 @@
+{
+  "restartable": "rs",
+  "ignore": [".git", "node_modules/**/node_modules", "dist", "coverage", "*.zip"],
+  "verbose": true,
+  "execMap": {
+    "mjs": "node"
+  },
+  "watch": ["src/", "events/", "server.mjs"],
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "ext": "mjs,js,json"
+}

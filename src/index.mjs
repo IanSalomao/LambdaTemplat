@@ -7,6 +7,7 @@
 
 import { logEvent } from "./utils/logger.mjs";
 import { processEvent } from "./handlers/eventHandler.mjs";
+import { sendResponse } from "./utils/responses.mjs";
 
 /**
  * Handler principal da função Lambda
@@ -16,29 +17,20 @@ import { processEvent } from "./handlers/eventHandler.mjs";
  * @returns {Promise<Object>} - Resposta da função Lambda
  */
 export const handler = async (event, context) => {
+  logEvent(event);
   try {
-    // Registra informações sobre o evento recebido (sem dados sensíveis)
-    logEvent("Evento recebido", { eventType: event.type || "desconhecido" });
-
     // Processa o evento
     const result = await processEvent(event, context);
 
-    // Retorna o resultado
-    return {
-      statusCode: 200,
-      body: JSON.stringify(result),
-    };
+    return sendResponse(200, result);
   } catch (error) {
     // Registra o erro
     console.error("Erro ao processar evento:", error);
 
     // Retorna resposta de erro
-    return {
-      statusCode: 500,
-      body: JSON.stringify({
-        message: "Erro ao processar a solicitação",
-        errorId: context.awsRequestId,
-      }),
-    };
+    return sendResponse(500, {
+      message: "Erro ao processar a solicitação",
+      errorId: context.awsRequestId,
+    });
   }
 };
